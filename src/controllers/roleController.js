@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { getAuth } = require('./authContoller');
 
 const pool = new Pool({
     host: '127.0.0.1',
@@ -23,14 +24,14 @@ const getRoleById = async (req, res) => {
 const createRole = async (req, res) => {
     const {name,id} = req.body;
     
-    const response = await pool.query('INSERT INTO roles (name, id) VALUES ($1, $2)', [name, lastName, document, id]);
+    const response = await pool.query('INSERT INTO roles (name, id) VALUES ($1, $2)', [name, id]);
     console.log(response);
     res.send("Role created");
 };
 
 const updateRole = async (req, res) => {
     const id = req.params.id;
-    const { name, lastName, document } = req.body;
+    const { name } = req.body;
 
     const response = await pool.query('UPDATE roles SET name=$1 WHERE id = $2', [
         name,
@@ -38,7 +39,6 @@ const updateRole = async (req, res) => {
     ]);
     res.json('Role Updated Successfully');
 };
-
 
 
 module.exports = {

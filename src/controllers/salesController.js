@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { getAuth } = require('./authContoller');
 
 const pool = new Pool({
     host: '127.0.0.1',
@@ -21,19 +22,19 @@ const getSalesById = async (req, res) => {
 };
 
 const createSales = async (req, res) => {
-    const {id, productsId, usersId, qty} = req.body;
+    const {id, productId, userId, qty} = req.body;
     
-    const response = await pool.query('INSERT INTO sales (id, products_id, qty, users_id) VALUES ($1, $2, $3, $4)', [id, productsId, qty, usersId]);
+    const response = await pool.query('INSERT INTO sales (id, products_id, qty, users_id) VALUES ($1, $2, $3, $4)', [id, productId, parseInt(qty), userId]);
     console.log(response);
     res.send("Sales created");
 };
 
 const updateSales = async (req, res) => {
     const id = req.params.id;
-    const { productsId, usersId, qty } = req.body;
+    const { productId, userId, qty } = req.body;
 
     const response = await pool.query('UPDATE sales SET products_id=$1, users_id=$2, qty=$3,  WHERE id = $4', [
-        productsId, usersId, qty, id
+        productId, userId, qty, id
     ]);
     res.json('Sales Updated Successfully');
 };

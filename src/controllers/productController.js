@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { getAuth } = require('./authContoller')
 
 const pool = new Pool({
     host: '127.0.0.1',
@@ -21,12 +22,21 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
 
-        const response   = await req.body.map(elem => {
-                pool.query('INSERT INTO products (name, price, description, id) VALUES ($1, $2, $3, $4)', 
+    
+        const authorization = await getAuth(req.headers.auth);
+        console.log("auth: " + authorization);
+
+        if (authorization === "admin"){
+            req.body.map( async elem => {
+                await pool.query('INSERT INTO products (name, price, description, id) VALUES ($1, $2, $3, $4)', 
                 [elem.name, parseInt(elem.price), elem.description, elem.id]);
-                res.send("Product: " + product + " has been created");
-             
+            
         });
+        res.status(201).send("Products has been created");
+            
+        }else if(authorization !== "admin"){
+            res.status(401).send("User hasn't authorization to create product");
+        }
         
    
 };
