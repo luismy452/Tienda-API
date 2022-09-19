@@ -9,4 +9,4 @@ app.use(express.urlencoded({extended: false}));
 app.use(require('./routes/index'));
 
 app.listen(3000);
-console.log('Express server listening on, HOLI');
+console.log('Express server listening on');

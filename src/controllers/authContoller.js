@@ -11,7 +11,7 @@ const pool = new Pool({
 const getAuth = async (auth) => {
     let authorization;
     console.log("auth en authcontroller: " +  auth);
-    const response = await pool.query('SELECT * FROM roles WHERE id = (SELECT role_id FROM users WHERE role_id = $1)', [auth]);
+    const response = await pool.query('SELECT * FROM roles WHERE id = (SELECT role_id FROM users WHERE id = $1)', [auth]);
     console.log("response", response.rows);
     switch (response.rows[0].name) {
         case "admin":

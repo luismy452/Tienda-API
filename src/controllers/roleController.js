@@ -23,10 +23,16 @@ const getRoleById = async (req, res) => {
 
 const createRole = async (req, res) => {
     const {name,id} = req.body;
+    const authorization = await getAuth(req.headers.auth);
+
+    if (authorization === "admin") {
     
     const response = await pool.query('INSERT INTO roles (name, id) VALUES ($1, $2)', [name, id]);
     console.log(response);
     res.send("Role created");
+    }else if (authorization !== "admin"){
+        res.status(401).json("bloqued");
+    }
 };
 
 const updateRole = async (req, res) => {

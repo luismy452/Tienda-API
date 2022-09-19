@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "ed11c03f-9a77-47c5-9084-4bf16a1fb5df",
+		"name": "3 Pi Medios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users?auth=479fba0a-baaf-4b46-95a2-83a663855555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "auth",
+							"value": "479fba0a-baaf-4b46-95a2-83a663855555"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSales",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/sales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/479fba0a-baaf-4b46-95a2-83a663817648",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"479fba0a-baaf-4b46-95a2-83a663817648"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoleById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/roles/479fba0a-baaf-4b46-95a2-83a663855555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"roles",
+						"479fba0a-baaf-4b46-95a2-83a663855555"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/479fba0a-baaf-4b46-95a2-83a663817646",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"479fba0a-baaf-4b46-95a2-83a663817646"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/479fba0a-baaf-4b46-95a2-83a663817646?auth=479fba0a-baaf-4b46-95a2-83a663855555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"479fba0a-baaf-4b46-95a2-83a663817646"
+					],
+					"query": [
+						{
+							"key": "auth",
+							"value": "479fba0a-baaf-4b46-95a2-83a663855555"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSales",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sales/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sales",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"479fba0a-baaf-4b46-95a2-83a663817675\", \"name\": \"luis miguel\", \"lastName\": \"bolano c\" , \"document\": \"otro document\", \"roleId\":\"479fba0a-baaf-4b46-95a2-83a663855553\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProducts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "479fba0a-baaf-4b46-95a2-83a663817675",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\" : \"479fba0a-baaf-4b46-95a2-83a663817588\",\r\n    \"name\" : \"Arroz Diana premium\",\r\n    \"description\" : \"Libra\",\r\n    \"price\" : 5000\r\n  },\r\n  {\r\n    \"id\" : \"efbff7f6-6374-4c2f-9c96-3611c6506588\",\r\n    \"name\" : \"Papas Margarita tomate\",\r\n    \"description\" : \"Gramo\",\r\n    \"price\" : 35000\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRoles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"479fba0a-baaf-4b46-95a2-83a663855553\", \"name\": \"employee\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/roles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"roles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "479fba0a-baaf-4b46-95a2-83a663817670",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"479fba0a-baaf-4b46-95a2-83a663817655\", \"qty\": 5, \"productId\": \"479fba0a-baaf-4b46-95a2-83a663817646\" , \"userId\":\"479fba0a-baaf-4b46-95a2-83a663817648\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sales/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sales",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\": \"luis miguel\", \"lastName\": \"bolano c\" , \"document\": \"otro document\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/479fba0a-baaf-4b46-95a2-83a663817647?auth=479fba0a-baaf-4b46-95a2-83a663855555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"479fba0a-baaf-4b46-95a2-83a663817647"
+					],
+					"query": [
+						{
+							"key": "auth",
+							"value": "479fba0a-baaf-4b46-95a2-83a663855555"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSales",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "auth",
+						"value": "479fba0a-baaf-4b46-95a2-83a663855555",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\": \"luis miguel\", \"lastName\": \"bolano c\" , \"document\": \"otro document\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sales/479fba0a-baaf-4b46-95a2-83a663817650",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sales",
+						"479fba0a-baaf-4b46-95a2-83a663817650"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
