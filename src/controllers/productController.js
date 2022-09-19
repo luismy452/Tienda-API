@@ -2,12 +2,11 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
     host: '127.0.0.1',
-    Product: 'postgres',
+    user: 'postgres',
     password: '12345',
     database: '3piTest',
     port: '5432'
 });
-
 const getProduct = async (req, res) => {
     const response = await pool.query('SELECT * FROM products');
     console.log(response.rows);
@@ -21,16 +20,21 @@ const getProductById = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-    const {name,description, id, price} = req.body;
-    
-    const response = await pool.query('INSERT INTO products (name, description, price, id) VALUES ($1, $2, $3, $4)', [name, description, price, id]);
-    console.log(response);
-    res.send("Product created");
+
+        const response   = await req.body.map(elem => {
+                pool.query('INSERT INTO products (name, price, description, id) VALUES ($1, $2, $3, $4)', 
+                [elem.name, parseInt(elem.price), elem.description, elem.id]);
+                res.send("Product: " + product + " has been created");
+             
+        });
+        
+   
 };
 
 const updateProduct = async (req, res) => {
     const id = req.params.id;
-    const { name, description, price} = req.body;
+    const { name, description} = req.body;
+    const price = parseInt(req.body.price);
 
     const response = await pool.query('UPDATE products SET name=$1, description=$2, price=$3  WHERE id = $4', [
         name,
@@ -47,6 +51,7 @@ const deleteProduct = async (req, res) => {
     await pool.query('DELETE FROM products where id = $1', [id]);
     res.json(`Product ${id} deleted Successfully`);
 };
+
 
 module.exports = {
     getProduct,

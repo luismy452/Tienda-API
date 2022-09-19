@@ -21,22 +21,17 @@ router.put('/roles/:id', updateRole);
 
 //ventas
 router.get('/sales', getSales);
-router.get('/users/:id',getSalesById);
-router.post('/users', createSales);
-router.put('/users/:id', updateSales);
-router.delete('/users/:id', deleteSales);
+router.get('/sales/:id',getSalesById);
+router.post('/sales', createSales);
+router.put('/sales/:id', updateSales);
+router.delete('/sales/:id', deleteSales);
 
 //productos
-router.get('/Products', getProduct);
-router.get('/Products/:id',getProductById);
-router.post('/Products', createProduct);
-router.put('/Products/:id', updateProduct);
-router.delete('/Products/:id', deleteProduct);
-
-
-
-
-
+router.get('/products', getProduct);
+router.get('/products/:id',getProductById);
+router.post('/products', createProduct);
+router.put('/products/:id', updateProduct);
+router.delete('/products/:id', deleteProduct);
 
 
 module.exports = router;
